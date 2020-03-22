@@ -6,6 +6,25 @@ import com.edit.photomovie.opengl.FboTexture;
 
 
 public class CameoMovieFilter extends BaseMovieFilter {
+    
+    
+     protected static final String DEFAULT_VERTEX_SHADER =
+        //矩阵
+        "uniform mat4 uMVPMatrix;\n" +
+            //纹理矩阵
+            "uniform mat4 uSTMatrix;\n" +
+            //顶点坐标
+            "attribute vec4 aPosition;\n" +
+            //纹理坐标
+            "attribute vec4 aTextureCoord;\n" +
+            //传给片段着色器的纹理坐标
+            "varying vec2 vTextureCoord;\n" +
+            "void main() {\n" +
+            "  gl_Position = uMVPMatrix * aPosition;\n" +
+            //根据自己定义的纹理坐标和纹理矩阵求取传给片段着色器的纹理坐标
+            "  vTextureCoord = (uSTMatrix * aTextureCoord).xy;\n" +
+            "}\n";
+
 
     protected static final String FRAGMENT_SHADER =
             "#extension GL_OES_EGL_image_external : require\n" +
@@ -67,7 +86,7 @@ public class CameoMovieFilter extends BaseMovieFilter {
             "}  ";
 //    private int mTexSizeHandle;
     public CameoMovieFilter(){
-        super(VERTEX_SHADER,FRAGMENT_SHADER);
+        super(DEFAULT_VERTEX_SHADER,FRAGMENT_SHADER);
     }
 
 //    @Override
