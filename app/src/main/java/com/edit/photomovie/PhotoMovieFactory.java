@@ -28,8 +28,8 @@ public class PhotoMovieFactory {
         SCALE,
         SCALE_TRANS,
         WINDOW,
-        HORIZONTAL_TRANS,
-        VERTICAL_TRANS,
+       // HORIZONTAL_TRANS,
+      //  VERTICAL_TRANS,
         GRADIENT,
         TEST
     }
@@ -46,10 +46,10 @@ public class PhotoMovieFactory {
                 return generateScaleTransPhotoMovie(photoSource);
             case WINDOW:
                 return generateWindowPhotoMovie(photoSource);
-            case HORIZONTAL_TRANS:
-                return generateHorizontalTransPhotoMovie(photoSource);
-            case VERTICAL_TRANS:
-                return generateVerticalTransPhotoMovie(photoSource);
+           // case HORIZONTAL_TRANS:
+           //     return generateHorizontalTransPhotoMovie(photoSource);
+          //  case VERTICAL_TRANS:
+          //      return generateVerticalTransPhotoMovie(photoSource);
             case GRADIENT:
                 return genGradientPhotoMovie(photoSource);
             case TEST:
