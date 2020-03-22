@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Filterbase.iml" filepath="$PROJECT_DIR$/Filterbase.iml" group="Filterbase" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Filterbase/app" />
       <module fileurl="file://$PROJECT_DIR$/filterbase.iml" filepath="$PROJECT_DIR$/filterbase.iml" group="filterbase" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" group="filterbase/library" />
     </modules>
