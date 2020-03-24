@@ -1,2 +1,2 @@
-rootProject.name='Filterbase'
-include ':app'
+rootProject.name='nine'
+include ':app', ':library'
