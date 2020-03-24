@@ -41,30 +41,23 @@ public class MovieBottomView extends ConstraintLayout implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.movie_filter:
-            case R.id.movie_filter_txt:
-                if(mCallback!=null){
-                    mCallback.onFilterClick();
-                }
-                break;
-            case R.id.movie_transfer:
-            case R.id.movie_transfer_txt:
-                if(mCallback!=null){
-                    mCallback.onTransferClick();
-                }
-                break;
-            case R.id.movie_music:
-            case R.id.movie_music_txt:
-                if(mCallback!=null){
-                    mCallback.onMusicClick();
-                }
-                break;
-            case R.id.movie_next:
-                if(mCallback!=null){
-                    mCallback.onNextClick();
-                }
-                break;
+        int id = v.getId();
+        if (id == R.id.movie_filter || id == R.id.movie_filter_txt) {
+            if (mCallback != null) {
+                mCallback.onFilterClick();
+            }
+        } else if (id == R.id.movie_transfer || id == R.id.movie_transfer_txt) {
+            if (mCallback != null) {
+                mCallback.onTransferClick();
+            }
+        } else if (id == R.id.movie_music || id == R.id.movie_music_txt) {
+            if (mCallback != null) {
+                mCallback.onMusicClick();
+            }
+        } else if (id == R.id.movie_next) {
+            if (mCallback != null) {
+                mCallback.onNextClick();
+            }
         }
     }
 
