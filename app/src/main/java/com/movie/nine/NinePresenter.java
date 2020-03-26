@@ -53,10 +53,10 @@ public class NinePresenter implements MovieFilterView.FilterCallback, IMovieTime
         List<TransferItem> items = new LinkedList<TransferItem>();
       //  items.add(new TransferItem(R.drawable.ic_movie_transfer, "LeftRight", PhotoMovieFactory.PhotoMovieType.HORIZONTAL_TRANS));
       //  items.add(new TransferItem(R.drawable.ic_movie_transfer, "UpDown", PhotoMovieFactory.PhotoMovieType.VERTICAL_TRANS));
+        items.add(new TransferItem(R.drawable.ic_movie_transfer, "Thaw", PhotoMovieFactory.PhotoMovieType.THAW));
         items.add(new TransferItem(R.drawable.ic_movie_transfer, "Window", PhotoMovieFactory.PhotoMovieType.WINDOW));
         items.add(new TransferItem(R.drawable.ic_movie_transfer, "Gradient", PhotoMovieFactory.PhotoMovieType.GRADIENT));
         items.add(new TransferItem(R.drawable.ic_movie_transfer, "Tranlation", PhotoMovieFactory.PhotoMovieType.SCALE_TRANS));
-        items.add(new TransferItem(R.drawable.ic_movie_transfer, "Thaw", PhotoMovieFactory.PhotoMovieType.THAW));
         items.add(new TransferItem(R.drawable.ic_movie_transfer, "Scale", PhotoMovieFactory.PhotoMovieType.SCALE));
         mDemoView.setTransfers(items);
     }
@@ -208,7 +208,8 @@ public class NinePresenter implements MovieFilterView.FilterCallback, IMovieTime
         final File file = initVideoFile();
         GLTextureView glTextureView = mDemoView.getGLView();
         int bitrate = glTextureView.getWidth() * glTextureView.getHeight() > 1000 * 1500 ? 8000000 : 4000000;
-        recorder.configOutput(glTextureView.getWidth(), glTextureView.getHeight(), bitrate, 30, 1, file.getAbsolutePath());
+      //  recorder.configOutput(glTextureView.getWidth(), glTextureView.getHeight(), bitrate, 30, 1, file.getAbsolutePath());
+        recorder.configOutput(720, 1280, bitrate, 30, 1, file.getAbsolutePath());
         //生成一个全新的MovieRender，不然与现有的GL环境不一致，相互干扰容易出问题
         PhotoMovie newPhotoMovie = PhotoMovieFactory.generatePhotoMovie(mPhotoMovie.getPhotoSource(), mMovieType);
         GLSurfaceMovieRenderer newMovieRenderer = new GLSurfaceMovieRenderer(mMovieRenderer);
@@ -252,7 +253,7 @@ public class NinePresenter implements MovieFilterView.FilterCallback, IMovieTime
 
 
                 } else {
-                    Toast.makeText(mDemoView.getActivity().getApplicationContext(), "com.hw.photomovie.record error!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mDemoView.getActivity().getApplicationContext(), "record error!", Toast.LENGTH_LONG).show();
                 }
                 if(recorder.getAudioRecordException()!=null){
                     Toast.makeText(mDemoView.getActivity().getApplicationContext(), "record audio failed:"+recorder.getAudioRecordException().toString(), Toast.LENGTH_LONG).show();

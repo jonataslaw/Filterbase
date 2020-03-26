@@ -214,6 +214,8 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
         }
     }
 
+
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {

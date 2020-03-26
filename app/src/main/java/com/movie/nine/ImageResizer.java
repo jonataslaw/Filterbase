@@ -99,6 +99,8 @@ class ImageResizer {
         return file;
     }
 
+
+
     private File createFile(File externalFilesDirectory, String child) {
         return new File(externalFilesDirectory, child);
     }
