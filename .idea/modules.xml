@@ -3,10 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/9nine-Filterbase.iml" filepath="$PROJECT_DIR$/9nine-Filterbase.iml" group="Filterbase" />
+      <module fileurl="file://$PROJECT_DIR$/library/9nine-Filterbase-library.iml" filepath="$PROJECT_DIR$/library/9nine-Filterbase-library.iml" group="Filterbase/library" />
       <module fileurl="file://$PROJECT_DIR$/Filterbase.iml" filepath="$PROJECT_DIR$/Filterbase.iml" group="Filterbase" />
       <module fileurl="file://$PROJECT_DIR$/library/Filterbase-library.iml" filepath="$PROJECT_DIR$/library/Filterbase-library.iml" group="Filterbase/library" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Filterbase/app" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" group="Filterbase/library" />
+      <module fileurl="file://$PROJECT_DIR$/Área de trabalho-9nine-Filterbase.iml" filepath="$PROJECT_DIR$/Área de trabalho-9nine-Filterbase.iml" group="Filterbase" />
     </modules>
   </component>
 </project>

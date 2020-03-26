@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.StrictMode;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.movie.nine.widget.MovieFilterView;
 import com.movie.nine.widget.MovieTransferView;
 import com.movie.nine.widget.TransferItem;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -187,6 +189,15 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
             if (data != null) {
                 String pathsList[]= data.getExtras().getStringArray(GligarPicker.IMAGES_RESULT);
                 ArrayList<String> photos =  new ArrayList<String>(Arrays.asList(pathsList));
+                final File externalFilesDirectory =
+                        NineActivity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+                final ExifDataCopier exifDataCopier = new ExifDataCopier();
+                final ImageResizer imageResizer = new ImageResizer(externalFilesDirectory, exifDataCopier);
+
+                for(int i = 0; i < photos.size(); i++) {
+                    photos.set(i, imageResizer.resizeImageIfNeeded( photos.get(i), 1200.0, 1200.0, 60));
+                }
+
 //               int i = photos.size();
 //               int ban = 0;
 //               if(i>3 &&(i<6)){
