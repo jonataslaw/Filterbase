@@ -207,7 +207,7 @@ public class NinePresenter implements MovieFilterView.FilterCallback, IMovieTime
         final GLMovieRecorder recorder = new GLMovieRecorder(mDemoView.getActivity());
         final File file = initVideoFile();
       //  GLTextureView glTextureView = mDemoView.getGLView();
-        int bitrate = 3000000;
+        int bitrate = 4000000;
       //  recorder.configOutput(glTextureView.getWidth(), glTextureView.getHeight(), bitrate, 30, 1, file.getAbsolutePath());
         recorder.configOutput(720, 1280, bitrate, 30, 1, file.getAbsolutePath());
         //生成一个全新的MovieRender，不然与现有的GL环境不一致，相互干扰容易出问题
