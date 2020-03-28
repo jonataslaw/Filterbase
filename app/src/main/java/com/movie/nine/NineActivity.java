@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.Toast;
+import com.edit.photomovie.record.FileUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -183,8 +184,13 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == REQUEST_MUSIC) {
-            Uri uri = data.getData();
-            mNinePresenter.setMusic(uri);
+           
+             if (data != null) {
+               String real = FileUtils.getRealPath(NineActivity.this, data.getData());
+                final Uri uri = Uri.parse(real);
+                mNinePresenter.setMusic(uri);
+               }
+             
         } else if (resultCode == RESULT_OK && requestCode == PICKER_REQUEST_CODE) {
             if (data != null) {
                 String pathsList[]= data.getExtras().getStringArray(GligarPicker.IMAGES_RESULT);
