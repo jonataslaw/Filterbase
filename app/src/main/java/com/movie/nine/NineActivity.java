@@ -4,10 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.StrictMode;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +20,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.edit.photomovie.render.GLTextureView;
 import com.edit.photomovie.util.AppResources;
+import com.movie.nine.compress.CompressHelper;
 import com.movie.nine.widget.FilterItem;
 import com.movie.nine.widget.MovieBottomView;
 import com.movie.nine.widget.MovieFilterView;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.nanchen.compresshelper.CompressHelper;
 import com.opensooq.supernova.gligar.GligarPicker;
 
 /**
