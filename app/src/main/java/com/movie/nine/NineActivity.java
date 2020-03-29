@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.Toast;
+
 import com.edit.photomovie.record.FileUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +32,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.nanchen.compresshelper.CompressHelper;
 import com.opensooq.supernova.gligar.GligarPicker;
 
 /**
@@ -39,6 +43,7 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
+
     private static final int REQUEST_MUSIC = 234;
 
     private static final int PICKER_REQUEST_CODE = 777;
@@ -60,7 +65,7 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
 
     /**
      * Checks if the app has permission to write to device storage
-     *
+     * <p>
      * If the app does not has permission then the user will be prompted to grant permissions
      *
      * @param activity
@@ -184,24 +189,24 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == REQUEST_MUSIC) {
-           
-             if (data != null) {
-               String real = FileUtils.getRealPath(NineActivity.this, data.getData());
-                final Uri uri = Uri.parse(real);
+
+            if (data != null) {
+                String real = FileUtils.getRealPath(NineActivity.this, data.getData());
+                Uri uri = Uri.fromFile(new File(real));
                 mNinePresenter.setMusic(uri);
-               }
-             
+            }
+
         } else if (resultCode == RESULT_OK && requestCode == PICKER_REQUEST_CODE) {
             if (data != null) {
-                String pathsList[]= data.getExtras().getStringArray(GligarPicker.IMAGES_RESULT);
-                ArrayList<String> photos =  new ArrayList<String>(Arrays.asList(pathsList));
-                final File externalFilesDirectory =
-                        NineActivity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-                final ExifDataCopier exifDataCopier = new ExifDataCopier();
-                final ImageResizer imageResizer = new ImageResizer(externalFilesDirectory, exifDataCopier);
+                String pathsList[] = data.getExtras().getStringArray(GligarPicker.IMAGES_RESULT);
+                ArrayList<String> photos = new ArrayList<String>(Arrays.asList(pathsList));
 
-                for(int i = 0; i < photos.size(); i++) {
-                    photos.set(i, imageResizer.resizeImageIfNeeded( photos.get(i), 1200.0, 1200.0, 60));
+                for (int i = 0; i < photos.size(); i++) {
+                    photos.set(i, new CompressHelper.Builder(this)
+                            .setMaxWidth(1280)
+                            .setMaxHeight(1280)
+                            .build()
+                            .compressToFile(new File(photos.get(i))).getAbsolutePath());
                 }
 
 //               int i = photos.size();
@@ -219,7 +224,6 @@ public class NineActivity extends AppCompatActivity implements IDemoView, MovieB
             }
         }
     }
-
 
 
     @Override

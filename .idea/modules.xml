@@ -7,8 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/Filterbase.iml" filepath="$PROJECT_DIR$/Filterbase.iml" group="Filterbase" />
       <module fileurl="file://$PROJECT_DIR$/library/Filterbase-library.iml" filepath="$PROJECT_DIR$/library/Filterbase-library.iml" group="Filterbase/library" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Filterbase/app" />
+      <module fileurl="file://$PROJECT_DIR$/jonny-Área de trabalho-9nine-Filterbase.iml" filepath="$PROJECT_DIR$/jonny-Área de trabalho-9nine-Filterbase.iml" group="Filterbase" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" group="Filterbase/library" />
       <module fileurl="file://$PROJECT_DIR$/Área de trabalho-9nine-Filterbase.iml" filepath="$PROJECT_DIR$/Área de trabalho-9nine-Filterbase.iml" group="Filterbase" />
+      <module fileurl="file://$PROJECT_DIR$/library/Área de trabalho-9nine-Filterbase-library.iml" filepath="$PROJECT_DIR$/library/Área de trabalho-9nine-Filterbase-library.iml" group="Filterbase/library" />
     </modules>
   </component>
 </project>
